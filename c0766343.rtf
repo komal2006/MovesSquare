@@ -1,0 +1,175 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Italic;}
+{\colortbl;\red255\green255\blue255;\red191\green100\blue38;\red32\green32\blue32;\red153\green168\blue186;
+\red109\green109\blue109;\red254\green187\blue91;\red133\green96\blue154;\red88\green118\blue71;\red86\green132\blue173;
+}
+{\*\expandedcolortbl;;\csgenericrgb\c74902\c39216\c14902;\csgenericrgb\c12549\c12549\c12549;\csgenericrgb\c60000\c65882\c72941;
+\csgenericrgb\c42745\c42745\c42745;\csgenericrgb\c99608\c73333\c35686;\csgenericrgb\c52157\c37647\c60392;\csgenericrgb\c34510\c46275\c27843;\csgenericrgb\c33725\c51765\c67843;
+}
+\margl1440\margr1440\vieww28600\viewh17500\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 import \cf4 java.util.*\cf2 ;   \cf5 //this is important for reading from keyboard\
+\cf2 public class \cf4 librarySystem \{\
+\
+    \cf2 public static void \cf6 main\cf4 (String[] args) \{\
+        Scanner sc = \cf2 new \cf4 Scanner(System.
+\f1\i \cf7 in
+\f0\i0 \cf4 )\cf2 ;\
+        \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "how many books you want to enter?"\cf4 )\cf2 ;\
+        int \cf4 size = sc.nextInt()\cf2 ;\
+        \cf4 String bookTitle[] = \cf2 new \cf4 String[size]\cf2 ; \cf5 //create the array\
+        \cf2 int \cf4 noOfCopies[] = \cf2 new int\cf4 [size]\cf2 ;  \cf5 //create the array\
+        \cf2 for \cf4 (\cf2 int \cf4 i = \cf9 0\cf2 ; \cf4 i < size\cf2 ; \cf4 i++) \{\
+            System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "----------------------------------------------"\cf4 )\cf2 ;\
+            \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "Enter the title of book:"\cf4 )\cf2 ;\
+            \cf4 bookTitle[i] = sc.next()\cf2 ;\
+            \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "Enter the number of available copies of book:"\cf4 )\cf2 ;\
+            \cf4 noOfCopies[i] = sc.nextInt()\cf2 ;\
+        \cf4 \}\
+        
+\f1\i noAvailableCopies
+\f0\i0 (bookTitle\cf2 , \cf4 noOfCopies\cf2 , \cf4 size)\cf2 ; \cf5 // calling method\
+        \cf2 int \cf4 co = 
+\f1\i noOfAvailableCopies
+\f0\i0 (noOfCopies\cf2 , \cf4 size)\cf2 ;\
+        \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "----------------------------------------------"\cf4 )\cf2 ;\
+        \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "number of books with copies less than five: " \cf4 + \cf8 "  " \cf4 + co)\cf2 ;\
+        \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "----------------------------------------------"\cf4 )\cf2 ;\
+        int \cf4 choice\cf2 ;\
+        \cf4 choice = 
+\f1\i showMenu
+\f0\i0 ()\cf2 ;\
+        switch \cf4 (choice) \{\
+            \cf2 case \cf9 1\cf4 :\
+                
+\f1\i borrowBook
+\f0\i0 (bookTitle\cf2 , \cf4 noOfCopies\cf2 , \cf4 size)\cf2 ;\
+                break;\
+            case \cf9 2\cf4 :\
+                
+\f1\i returnBook
+\f0\i0 (bookTitle\cf2 , \cf4 noOfCopies\cf2 , \cf4 size)\cf2 ;\
+                break;\
+\
+            default\cf4 :\
+                System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "Sorry!! please select from available options"\cf4 )\cf2 ;\
+        \cf4 \}  \cf5 //end of switch\
+    \cf4 \} \cf5 // end of main method\
+\
+    \cf2 public static int \cf6 noOfAvailableCopies\cf4 (\cf2 int \cf4 noOfCopies[]\cf2 , int \cf4 size) \{\
+        \cf2 int \cf4 n = \cf9 0\cf2 ;\
+        for \cf4 (\cf2 int \cf4 i = \cf9 0\cf2 ; \cf4 i < size\cf2 ; \cf4 i++)\
+            \cf2 if \cf4 (noOfCopies[i] < \cf9 5\cf4 )\
+                n++\cf2 ;\
+        return \cf4 n\cf2 ;\
+    \cf4 \}\
+\
+    \cf2 public static void \cf6 noAvailableCopies\cf4 (String bookTitle[]\cf2 , int \cf4 noOfCopies[]\cf2 , int \cf4 size) \{\
+        \cf2 for \cf4 (\cf2 int \cf4 i = \cf9 0\cf2 ; \cf4 i < size\cf2 ; \cf4 i++)\
+            \cf2 if \cf4 (noOfCopies[i] == \cf9 0\cf4 )\
+                System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "Books having no available Copies are:" \cf4 + \cf8 "  " \cf4 + bookTitle[i])\cf2 ;\
+    \cf4 \}\
+\
+    \cf2 public static int \cf6 showMenu\cf4 () \{\
+        Scanner sc = \cf2 new \cf4 Scanner(System.
+\f1\i \cf7 in
+\f0\i0 \cf4 )\cf2 ;\
+        \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "************* Select an option *************"\cf4 )\cf2 ;\
+        \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "1:Borrow a book\cf2 \\n\cf8 2:return a book"\cf4 )\cf2 ;\
+        int \cf4 choice = sc.nextInt()\cf2 ;\
+        return \cf4 choice\cf2 ;\
+    \cf4 \}\
+\
+    \cf5 //method of borrow the books\
+    \cf2 public static void \cf6 borrowBook\cf4 (String bookTitle[]\cf2 , int \cf4 noOfCopies[]\cf2 , int \cf4 size) \{\
+        Scanner sc = \cf2 new \cf4 Scanner(System.
+\f1\i \cf7 in
+\f0\i0 \cf4 )\cf2 ;\
+        for \cf4 (\cf2 int \cf4 i = \cf9 0\cf2 ; \cf4 i < size\cf2 ; \cf4 i++) \{\
+            System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println((i + \cf9 1\cf4 ) + \cf8 "  " \cf4 + bookTitle[i])\cf2 ;\
+        \cf4 \}\
+        System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 " Enter the book title you want to borrow:"\cf4 )\cf2 ;\
+        \cf4 String requestedBook\cf2 ;\
+        \cf4 requestedBook = sc.next()\cf2 ;\
+        int \cf4 i\cf2 ;\
+        for \cf4 (i = \cf9 0\cf2 ; \cf4 i < size\cf2 ; \cf4 i++)\
+            \cf2 if \cf4 (bookTitle[i].equalsIgnoreCase(requestedBook)) \{\
+                \cf2 if \cf4 (!(noOfCopies[i] <= \cf9 0\cf4 )) \{\
+                    System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "number of available copies for this book was :" \cf4 + noOfCopies[i])\cf2 ;\
+                    \cf4 noOfCopies[i] = noOfCopies[i] - \cf9 1\cf2 ;\
+                    \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "You are borrowing " \cf4 + bookTitle[i])\cf2 ;\
+                    \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "Number of copies available is " \cf4 + noOfCopies[i])\cf2 ;\
+                \cf4 \} \cf2 else \cf4 \{\
+                    System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "Sorry !! this book is not Available"\cf4 )\cf2 ;\
+                \cf4 \}\
+            \}\
+    \}\
+\
+    \cf5 //method of return the books\
+    \cf2 public static void \cf6 returnBook\cf4 (String title[]\cf2 , int \cf4 noOfCopies[]\cf2 , int \cf4 size) \{\
+        Scanner sc = \cf2 new \cf4 Scanner(System.
+\f1\i \cf7 in
+\f0\i0 \cf4 )\cf2 ;\
+        for \cf4 (\cf2 int \cf4 i = \cf9 0\cf2 ; \cf4 i < size\cf2 ; \cf4 i++) \{\
+            System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println((i + \cf9 1\cf4 ) + \cf8 "  " \cf4 + title[i])\cf2 ;\
+        \cf4 \}\
+        System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 " Enter the book title you want to Return"\cf4 )\cf2 ;\
+        \cf4 String returnedBook = sc.next()\cf2 ;\
+        int \cf4 i\cf2 ;\
+        for \cf4 (i = \cf9 0\cf2 ; \cf4 i < size\cf2 ; \cf4 i++)\
+            \cf2 if \cf4 (title[i].equalsIgnoreCase(returnedBook)) \{\
+                System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "number of available copies for this book:" \cf4 + noOfCopies[i])\cf2 ;\
+                \cf4 noOfCopies[i] = noOfCopies[i] + \cf9 1\cf2 ;\
+                \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "book you are returning: " \cf4 + title[i])\cf2 ;\
+                \cf4 System.
+\f1\i \cf7 out
+\f0\i0 \cf4 .println(\cf8 "Now Number of copies available is: " \cf4 + noOfCopies[i])\cf2 ;\
+            \cf4 \}\
+    \}\cf5 //end of returnBook Method\
+\
+\cf4 \}\
+\
+}
